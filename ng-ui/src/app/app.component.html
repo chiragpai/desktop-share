@@ -1,0 +1,10 @@
+<mat-toolbar color="primary">
+  <span>Desktop share</span>
+  <span class="spacer"></span>
+  <span>Connected to {{ host }}</span>
+</mat-toolbar>
+
+<mat-grid-list cols="2" rowHeight="1:1">
+  <mat-grid-tile><app-file-receiver style="flex-grow: 1; align-self: flex-start;"></app-file-receiver></mat-grid-tile>
+  <mat-grid-tile><app-text-receiver style="flex-grow: 1; align-self: flex-start;"></app-text-receiver></mat-grid-tile>
+</mat-grid-list>
