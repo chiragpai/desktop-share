@@ -1,0 +1,12 @@
+<div style="padding: 1rem; display: flex;">
+    <mat-card style="flex-grow: 1; width: 100%;">
+        <mat-card-title>Send text</mat-card-title>
+        <mat-form-field style="width: 100%; margin-top: 1rem;" appearance="fill">
+            <mat-label>Send your text here...</mat-label>
+            <textarea matInput placeholder="..." [(ngModel)]="text"></textarea>
+          </mat-form-field>
+        <mat-card-actions align="end">
+            <button mat-button><mat-icon fontIcon="send" (click)="sendText()"></mat-icon></button>
+        </mat-card-actions>
+    </mat-card>
+</div>

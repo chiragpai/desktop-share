@@ -1,0 +1,10 @@
+<div style="padding: 1rem; display: flex;">
+    <mat-card style="flex-grow: 1; width: 100%;">
+        <mat-card-title>Upload file</mat-card-title>
+        <mat-progress-bar [bufferValue]="10" color="accent" mode="buffer" value="50"></mat-progress-bar>
+        <input #fileUploadInput hidden="true" type="file" onclick="this.value=null" (change)="handleFileUpload($event)"/>
+        <mat-card-actions align="end">
+            <button mat-button (click)="fileUploadInput.click()">Select files to upload</button>
+        </mat-card-actions>
+    </mat-card>
+</div>
