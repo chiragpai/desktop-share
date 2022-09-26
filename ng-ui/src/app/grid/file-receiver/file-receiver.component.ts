@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FileReceiverComponent implements OnInit {
 
+  public selectedFile = "...";
+
   constructor() { }
 
   ngOnInit(): void {
@@ -15,6 +17,8 @@ export class FileReceiverComponent implements OnInit {
   handleFileUpload(fileInputEvent: Event) {
     // @ts-ignore
     console.log(fileInputEvent.target?.files);
+    // @ts-ignore
+    this.selectedFile = fileInputEvent.target?.files[0];
   }
 
 }

@@ -1,10 +1,29 @@
-<mat-toolbar color="primary">
-  <span>Desktop share</span>
-  <span class="spacer"></span>
-  <span>Connected to {{ host }}</span>
-</mat-toolbar>
+<nav class="navbar mat-elevation-z2" role="navigation" aria-label="main navigation">
+    <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+      <span class="navbar-item is-size-3 has-text-weight-semibold">
+        Desktop Share
+      </span>
 
-<mat-grid-list cols="2" rowHeight="1:1">
-  <mat-grid-tile><app-file-receiver style="flex-grow: 1; align-self: flex-start;"></app-file-receiver></mat-grid-tile>
-  <mat-grid-tile><app-text-receiver style="flex-grow: 1; align-self: flex-start;"></app-text-receiver></mat-grid-tile>
-</mat-grid-list>
+    </div>
+
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <div class="buttons">
+          <a class="button is-primary" style="cursor: default">
+            <strong>Connected to {{ host }}</strong>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="columns">
+  <div class="column">
+    <app-file-receiver></app-file-receiver>
+  </div>
+  <div class="column">
+    <app-text-receiver></app-text-receiver>
+  </div>
+</div>

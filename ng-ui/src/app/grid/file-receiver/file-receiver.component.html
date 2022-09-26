@@ -1,10 +1,39 @@
-<div style="padding: 1rem; display: flex;">
-    <mat-card style="flex-grow: 1; width: 100%;">
+<div style="padding: 1rem;">
+    <!-- <mat-card style="flex-grow: 1; width: 100%;">
         <mat-card-title>Upload file</mat-card-title>
         <mat-progress-bar [bufferValue]="10" color="accent" mode="buffer" value="50"></mat-progress-bar>
         <input #fileUploadInput hidden="true" type="file" onclick="this.value=null" (change)="handleFileUpload($event)"/>
         <mat-card-actions align="end">
             <button mat-button (click)="fileUploadInput.click()">Select files to upload</button>
         </mat-card-actions>
-    </mat-card>
+    </mat-card> -->
+    <div class="card">
+        <header class="card-header">
+            <p class="card-header-title is-size-4">
+                Upload file
+            </p>
+            <button class="card-header-icon" aria-label="more options" (click)="fileUploadInput.click()">
+                <mat-icon fontIcon="upload"></mat-icon>
+            </button>
+        </header>
+        <div class="card-content">
+            <input #fileUploadInput hidden="true" type="file" onclick="this.value=null"
+                (change)="handleFileUpload($event)" />
+            <progress class="progress is-info is-large" value="45" max="100">45%</progress>
+            <div class="block"></div>
+            <div class="file has-name">
+                <label class="file-label">
+                    <input class="file-input" type="file" name="resume">
+                    <span class="file-cta">
+                        <span class="file-label">
+                            Choose a file
+                        </span>
+                    </span>
+                    <span class="file-name">
+                        {{ selectedFile }}
+                    </span>
+                </label>
+            </div>
+        </div>
+    </div>
 </div>

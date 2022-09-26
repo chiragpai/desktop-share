@@ -26,7 +26,8 @@ export class TextReceiverComponent implements OnInit {
       next: response => {
         console.log("Completed", response);
         this.dialog.open(TextReceivedSuccessComponent, {
-          data: response
+          data: response,
+          minWidth: "50%"
         });
       },
       error: err => {
