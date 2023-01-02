@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { TextReceivedSuccessComponent } from 'src/app/dialog/text-received-success/text-received-success.component';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-text-receiver',
@@ -22,7 +23,7 @@ export class TextReceiverComponent implements OnInit {
     let body = {
       "text": this.text
     }
-    this.httpClient.post("http://" + window.location.hostname +":8080/text", body).subscribe({
+    this.httpClient.post(environment.shareHost + "/text", body).subscribe({
       next: response => {
         console.log("Completed", response);
         this.dialog.open(TextReceivedSuccessComponent, {

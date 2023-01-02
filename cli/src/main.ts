@@ -1,9 +1,16 @@
+#! /usr/bin/env node
 import bodyParser from "body-parser";
 import chalk from "chalk";
 import clipboard from "clipboardy";
 import express from "express";
 import os from "os";
-import QRCode from "qrcode"
+import QRCode from "qrcode";
+import multer from "multer";
+import fs from "fs";
+import path from "path";
+import process from "process";
+
+const dest = os.homedir() + "/Downloads/desktop-share";
 
 const findLocalAddress = (): string => {
     let addrs = os.networkInterfaces();
@@ -21,19 +28,26 @@ const findLocalAddress = (): string => {
 
 const app = express();
 const urlencodedParser = bodyParser.urlencoded({ extended: false });
+const storage = multer.diskStorage({
+    destination: function (req, file, callback) {
+        if(!fs.existsSync(dest)){
+            fs.mkdirSync(dest);
+        }
+        callback(null, dest);
+    },
+    filename: function (req, file, callback) {
+        callback(null, file.originalname);
+    }
+});
+var upload = multer({ storage: storage }).single("uploaded_file");
 
 enum endpoints {
-    INDEX_PAGE = "/",
+    STATIC = "/static",
     RECEIVE_FILES = "/files",
     RECEIVE_TEXT = "/text"
 }
 
 const port = 8080;
-
-app.get(endpoints.INDEX_PAGE, (request, response) => {
-    response.send("index_page");
-});
-
 app.get(endpoints.RECEIVE_TEXT, urlencodedParser, (request, response) => {
     let text = request.query.text;
     response.send("Received text: " + text);
@@ -50,6 +64,30 @@ app.post(endpoints.RECEIVE_TEXT, bodyParser.json(), (request, response) => {
     response.set("Access-Control-Allow-Origin", "*");
     response.set("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     response.send(respJson)
+});
+
+app.post(endpoints.RECEIVE_FILES, (request, response) => {
+    response.set("Access-Control-Allow-Origin", "*");
+    response.set("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    upload(request, response, function (err) {
+        if (err) {
+            console.log(err);
+            response.status(500).send(err);
+        } else {
+            response.status(200).send(request.file);
+        }
+    })
+});
+
+app.get("/", (request, response) => response.redirect("/index.html"));
+
+app.get("/:fileName", (request, response) => {
+    const fileName: string = request.params.fileName ? request.params.fileName : "index.html";
+    const filePath = path.join(process.cwd(), "dist", "static", fileName);
+    console.log("Loading requested file", filePath);
+    response.set("Access-Control-Allow-Origin", "*");
+    response.set("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    response.sendFile(filePath);
 });
 
 const serverHandler = () => {

@@ -12,18 +12,18 @@
             <p class="card-header-title is-size-4">
                 Upload file
             </p>
-            <button class="card-header-icon" aria-label="more options" (click)="fileUploadInput.click()">
+            <button class="card-header-icon" aria-label="more options" (click)="handleFileUpload()">
                 <mat-icon fontIcon="upload"></mat-icon>
             </button>
         </header>
         <div class="card-content">
-            <input #fileUploadInput hidden="true" type="file" onclick="this.value=null"
-                (change)="handleFileUpload($event)" />
-            <progress class="progress is-info is-large" value="45" max="100">45%</progress>
+
+            <progress class="progress is-info is-large" [value]="percentDone" max="100"></progress>
             <div class="block"></div>
             <div class="file has-name">
                 <label class="file-label">
-                    <input class="file-input" type="file" name="resume">
+                    <input #fileUploadInput hidden="true" type="file" onclick="this.value=null"
+                (change)="handleFileSelection($event)" />
                     <span class="file-cta">
                         <span class="file-label">
                             Choose a file

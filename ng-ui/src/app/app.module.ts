@@ -14,13 +14,15 @@ import { TextReceiverComponent } from './grid/text-receiver/text-receiver.compon
 import { FileReceiverComponent } from './grid/file-receiver/file-receiver.component';
 import { HttpClientModule } from '@angular/common/http';
 import { TextReceivedSuccessComponent } from './dialog/text-received-success/text-received-success.component';
+import { FileReceivedSuccessComponent } from './dialog/file-received-success/file-received-success.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TextReceiverComponent,
     FileReceiverComponent,
-    TextReceivedSuccessComponent
+    TextReceivedSuccessComponent,
+    FileReceivedSuccessComponent
   ],
   imports: [
     BrowserModule,

@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  shareHost: window.location.protocol + "//" + window.location.host
 };
