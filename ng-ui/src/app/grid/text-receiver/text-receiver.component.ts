@@ -20,6 +20,11 @@ export class TextReceiverComponent implements OnInit {
   }
 
   sendText(): void {
+    console.log(this.text?.length);
+    if(this.text?.length == 0 || !this.text) {
+      alert("Please enter some text to update your computer's clipboard.")
+      return;
+    }
     let body = {
       "text": this.text
     }

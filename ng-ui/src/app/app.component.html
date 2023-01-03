@@ -1,17 +1,25 @@
-<nav class="navbar mat-elevation-z2" role="navigation" aria-label="main navigation">
-    <div id="navbarBasicExample" class="navbar-menu">
-    <div class="navbar-start">
-      <span class="navbar-item is-size-3 has-text-weight-semibold">
-        Desktop Share
-      </span>
-
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <div class="navbar-item is-size-3 has-text-weight-semibold">
+      Desktop Share
     </div>
 
+    <a (click)="navbarExpand.classList.toggle('is-active')" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div #navbarExpand class="navbar-menu">
     <div class="navbar-end">
       <div class="navbar-item">
         <div class="buttons">
           <a class="button is-primary" style="cursor: default">
             <strong>Connected to {{ host }}</strong>
+          </a>
+          <a class="button is-primary" style="cursor: default" (click)="openInfo()">
+            <mat-icon fontIcon="info"></mat-icon>
           </a>
         </div>
       </div>

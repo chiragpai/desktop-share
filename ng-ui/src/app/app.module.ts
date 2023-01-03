@@ -15,6 +15,7 @@ import { FileReceiverComponent } from './grid/file-receiver/file-receiver.compon
 import { HttpClientModule } from '@angular/common/http';
 import { TextReceivedSuccessComponent } from './dialog/text-received-success/text-received-success.component';
 import { FileReceivedSuccessComponent } from './dialog/file-received-success/file-received-success.component';
+import { InfoComponent } from './dialog/info/info.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { FileReceivedSuccessComponent } from './dialog/file-received-success/fil
     TextReceiverComponent,
     FileReceiverComponent,
     TextReceivedSuccessComponent,
-    FileReceivedSuccessComponent
+    FileReceivedSuccessComponent,
+    InfoComponent
   ],
   imports: [
     BrowserModule,

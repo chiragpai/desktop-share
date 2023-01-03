@@ -1,3 +1,5 @@
+import { InfoComponent } from './dialog/info/info.component';
+import { MatDialog } from '@angular/material/dialog';
 import { Component } from '@angular/core';
 
 @Component({
@@ -11,8 +13,14 @@ export class AppComponent {
   public host = window.location.host;
   public breakpoint = 2;
 
+  constructor(private dialog:MatDialog) {}
+
   ngOnInit() {
     this.breakpoint = (window.innerWidth <= 500) ? 1 : 2;
+  }
+
+  openInfo() {
+    this.dialog.open(InfoComponent);
   }
 
   onResize(event: Event) {

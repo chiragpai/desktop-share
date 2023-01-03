@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "build": "tsc && cp -r src/static dist && npm run start",
-    "start": "node dist/main.js -p 9066",
+    "start": "node dist/main.js",
     "delete": "rmdir dist /s /q"
   },
   "repository": {
