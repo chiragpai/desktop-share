@@ -1,6 +1,6 @@
 {
   "name": "@com.chirag.software/desktop-share",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Utility to easily share files to your Computer or text to your Computer's clipboard",
   "main": "dist/main.js",
   "type": "module",
