@@ -1,0 +1,50 @@
+{
+  "name": "@com.chirag.software/desktop-share",
+  "version": "1.0.3",
+  "description": "Utility to easily share files to your Computer or text to your Computer's clipboard",
+  "main": "dist/main.js",
+  "type": "module",
+  "scripts": {
+    "build": "tsc && cp -r src/static dist && npm run start",
+    "start": "node dist/main.js",
+    "delete": "rmdir dist /s /q"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chiragpai/desktop-share.git"
+  },
+  "keywords": [
+    "desktop-share",
+    "share",
+    "utils"
+  ],
+  "author": "Chirag Pai",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/chiragpai/desktop-share/issues"
+  },
+  "homepage": "https://github.com/chiragpai/desktop-share#readme",
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "chalk": "^5.0.1",
+    "clipboardy": "^3.0.0",
+    "commander": "^9.4.1",
+    "conf": "^10.2.0",
+    "cookie-parser": "^1.4.6",
+    "express": "^4.18.1",
+    "multer": "^1.4.5-lts.1",
+    "qrcode": "^1.5.1"
+  },
+  "bin": {
+    "@com.chirag.software/desktop-share": "dist/main.js",
+    "desktop-share": "dist/main.js"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "@types/multer": "^1.4.7",
+    "@types/node": "^18.11.18"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

@@ -1,0 +1,23 @@
+{
+    "compilerOptions": {
+      "target": "ES2016",
+      "outDir": "dist",
+      "moduleResolution": "Node",
+      "sourceMap": true,
+      "allowSyntheticDefaultImports": true,
+      "paths": {
+        "*" : [
+          "./src/static"
+        ]
+      }
+    },
+    "files": [
+      "node_modules/@types/express/ts4.0/index.d.ts",
+    ],
+    "include": [
+      "src/*.ts"
+    ],
+    "exclude": [
+      "node_modules"
+    ]
+}
