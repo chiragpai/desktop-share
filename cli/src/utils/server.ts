@@ -18,9 +18,9 @@ enum endpoints {
 
 // @ts-ignore
 const dirname = path.dirname(fileURLToPath(import.meta.url));
+const dest = os.homedir() + "/Downloads/desktop-share";
 
 export class Server {
-    private dest = os.homedir() + "/Downloads/desktop-share";
     private netUtils;
     private app;
 
@@ -37,10 +37,10 @@ export class Server {
         this.urlencodedParser = bodyParser.urlencoded({ extended: false });
         this.storage = multer.diskStorage({
             destination: function (req, file, callback) {
-                if (!fs.existsSync(this.dest)) {
-                    fs.mkdirSync(this.dest);
+                if (!fs.existsSync(dest)) {
+                    fs.mkdirSync(dest);
                 }
-                callback(null, this.dest);
+                callback(null, dest);
             },
             filename: function (req, file, callback) {
                 callback(null, file.originalname);
