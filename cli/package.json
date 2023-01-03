@@ -1,12 +1,12 @@
 {
   "name": "@com.chirag.software/desktop-share",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Utility to easily share files to your Computer or text to your Computer's clipboard",
   "main": "dist/main.js",
   "type": "module",
   "scripts": {
     "build": "tsc && cp -r src/static dist && npm run start",
-    "start": "node dist/main.js",
+    "start": "node dist/main.js -p 9066",
     "delete": "rmdir dist /s /q"
   },
   "repository": {
@@ -36,12 +36,13 @@
     "qrcode": "^1.5.1"
   },
   "bin": {
-    "@com.chirag.software/desktop-share" : "dist/main.js",
+    "@com.chirag.software/desktop-share": "dist/main.js",
     "desktop-share": "dist/main.js"
   },
   "devDependencies": {
     "@types/express": "^4.17.13",
-    "@types/multer": "^1.4.7"
+    "@types/multer": "^1.4.7",
+    "@types/node": "^18.11.18"
   },
   "publishConfig": {
     "access": "public"
