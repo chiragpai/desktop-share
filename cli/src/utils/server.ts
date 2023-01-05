@@ -7,6 +7,7 @@ import QRCode from "qrcode";
 import multer from "multer";
 import fs from "fs";
 import path from "path";
+import { ServerSocket } from "./server-socket.js";
 import { NetUtils } from "./net-utils.js";
 import { fileURLToPath } from 'url';
 
@@ -121,7 +122,7 @@ export class Server {
                 });
 
         });
-
+        const serverSocket = new ServerSocket(this.server);
         return this.server;
     }
 }
