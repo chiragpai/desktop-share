@@ -1,0 +1,12 @@
+.media {
+    height: 0px;
+    transition: all 200ms ease-in-out;
+}
+
+.media.media-active {
+    height: 500px;
+}
+
+.is-mouse-link {
+    cursor: pointer;
+}

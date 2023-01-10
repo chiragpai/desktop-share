@@ -8,6 +8,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { FormsModule } from '@angular/forms';
 
 import { TextReceiverComponent } from './grid/text-receiver/text-receiver.component';
@@ -16,6 +17,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { TextReceivedSuccessComponent } from './dialog/text-received-success/text-received-success.component';
 import { FileReceivedSuccessComponent } from './dialog/file-received-success/file-received-success.component';
 import { InfoComponent } from './dialog/info/info.component';
+import { GridMainComponent } from './grid/grid-main/grid-main.component';
+import { CastComponent } from './pages/cast/cast.component';
+import { CastReceiverComponent } from './pages/cast-receiver/cast-receiver.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +28,10 @@ import { InfoComponent } from './dialog/info/info.component';
     FileReceiverComponent,
     TextReceivedSuccessComponent,
     FileReceivedSuccessComponent,
-    InfoComponent
+    InfoComponent,
+    GridMainComponent,
+    CastComponent,
+    CastReceiverComponent
   ],
   imports: [
     BrowserModule,
@@ -34,6 +41,7 @@ import { InfoComponent } from './dialog/info/info.component';
     MatIconModule,
     MatDialogModule,
     MatProgressBarModule,
+    MatSnackBarModule,
     MatInputModule,
     HttpClientModule
   ],

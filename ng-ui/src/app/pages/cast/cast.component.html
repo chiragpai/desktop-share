@@ -1,0 +1,24 @@
+<div class="columns p-4">
+    <div class="column">
+        <div class="card">
+            <header class="card-header">
+                <p class="card-header-title is-size-4">
+                    Cast to receivers
+                </p>
+                <button class="card-header-icon" aria-label="more options" (click)="stopStream()">
+                    <mat-icon fontIcon="front_hand"></mat-icon>
+                </button>
+            </header>
+            <div class="card-content">
+                <div class="content is-flex is-flex-direction-column is-align-content-center is-justify-content-center">
+                    <p class="is-size-6" style="text-align: center;">Your share id is <i class="is-mouse-link has-text-link has-tooltip-bottom" data-tooltip="Copy" (click)="copyIdToClipboard()">{{id}}</i>. Select this in the Cast Receiver tab on the other device</p>
+                    <video id="mediaStream" class="media"></video>
+                </div>
+            </div>
+            <footer class="card-footer">
+                <a class="card-footer-item" (click)="startStream(0)">Camera <mat-icon class="ml-2">videocamera</mat-icon></a>
+                <a class="card-footer-item" (click)="startStream(1)">Screen <mat-icon class="ml-2">cast</mat-icon></a>
+            </footer>
+        </div>
+    </div>
+</div>

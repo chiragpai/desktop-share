@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  shareHost: window.location.protocol + "//" + window.location.host
+  shareHost: window.location.protocol + "//192.168.0.105:8080",
+  socketHost: "ws://192.168.0.105:8080"
 };
 
 /*

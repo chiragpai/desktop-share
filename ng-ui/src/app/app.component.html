@@ -1,4 +1,4 @@
-<nav class="navbar" role="navigation" aria-label="main navigation">
+<nav class="navbar mat-elevation-z2" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
     <div class="navbar-item is-size-3 has-text-weight-semibold">
       Desktop Share
@@ -12,6 +12,11 @@
   </div>
 
   <div #navbarExpand class="navbar-menu">
+    <div class="navbar-start">
+      <a class="navbar-item is-size-6 has-text-weight-semibold has-text-link" routerLink="/">Sharing</a>
+      <a class="navbar-item is-size-6 has-text-weight-semibold has-text-link" routerLink="/cast">Cast</a>
+      <a class="navbar-item is-size-6 has-text-weight-semibold has-text-link" routerLink="/cast-receiver">Cast Receiver</a>
+    </div>
     <div class="navbar-end">
       <div class="navbar-item">
         <div class="buttons">
@@ -27,11 +32,4 @@
   </div>
 </nav>
 
-<div class="columns">
-  <div class="column">
-    <app-file-receiver></app-file-receiver>
-  </div>
-  <div class="column">
-    <app-text-receiver></app-text-receiver>
-  </div>
-</div>
+<router-outlet></router-outlet>

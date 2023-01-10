@@ -1,3 +1,4 @@
+import { environment } from 'src/environments/environment';
 import { InfoComponent } from './dialog/info/info.component';
 import { MatDialog } from '@angular/material/dialog';
 import { Component } from '@angular/core';
@@ -10,10 +11,11 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'ng-ui';
 
-  public host = window.location.host;
+  public host = environment.shareHost;
   public breakpoint = 2;
 
-  constructor(private dialog:MatDialog) {}
+  constructor(private dialog:MatDialog) {
+  }
 
   ngOnInit() {
     this.breakpoint = (window.innerWidth <= 500) ? 1 : 2;
