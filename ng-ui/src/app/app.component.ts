@@ -13,6 +13,7 @@ export class AppComponent {
 
   public host = environment.shareHost;
   public breakpoint = 2;
+  public env = environment;
 
   constructor(private dialog:MatDialog) {
   }

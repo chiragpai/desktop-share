@@ -22,7 +22,10 @@
                         </div>
                     </div>
                     <div class="column is-9">
-                        {{received | json}}
+                        <div>{{received | json}}</div>
+                        <div class="content is-flex is-flex-direction-column is-align-content-center is-justify-content-center">
+                            <video id="mediaStream" class="media"></video>
+                        </div>
                     </div>
                 </div>
             </div>

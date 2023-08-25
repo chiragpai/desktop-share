@@ -15,7 +15,7 @@
     <div class="navbar-start">
       <a class="navbar-item is-size-6 has-text-weight-semibold has-text-link" routerLink="/">Sharing</a>
       <a class="navbar-item is-size-6 has-text-weight-semibold has-text-link" routerLink="/cast">Cast</a>
-      <a class="navbar-item is-size-6 has-text-weight-semibold has-text-link" routerLink="/cast-receiver">Cast Receiver</a>
+      <a class="navbar-item is-size-6 has-text-weight-semibold has-text-link" routerLink="/cast-receiver" *ngIf="env.enableCasting">Cast Receiver</a>
     </div>
     <div class="navbar-end">
       <div class="navbar-item">

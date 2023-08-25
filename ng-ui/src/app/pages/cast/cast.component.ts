@@ -4,6 +4,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 // @ts-ignore
 import { v4 as uuid } from "uuid";
+import Peer from 'peerjs';
 
 enum CastType {
   CAMERA, SCREEN
@@ -18,7 +19,7 @@ export class CastComponent implements OnInit, OnDestroy {
 
   private stream?: MediaStream;
 
-  id = uuid();
+  id: string = "being generated";
 
   broadcastIntervalId: any;
 
@@ -37,10 +38,16 @@ export class CastComponent implements OnInit, OnDestroy {
   private rtcPeerConnection: RTCPeerConnection;
   private offerDescription?: RTCSessionDescriptionInit;
 
+  private peer: Peer;
+
   constructor(private snackBar: MatSnackBar, private websocketService: WebsocketService) {
+    this.peer = new Peer();
+    this.peer.on('open', (id) => {
+      console.log("Peer connection open with id", this.id = id);
+    });
     this.rtcPeerConnection = new RTCPeerConnection(this.configuration);
     this.rtcPeerConnection.onicecandidate = event => {
-      console.log(event);
+      console.log("Ice candidate", event);
     }
     this.createOffer();
     this.websocketService.messages.subscribe(msg => {
@@ -48,11 +55,13 @@ export class CastComponent implements OnInit, OnDestroy {
       if (msg.content === 'answer' && (msg.source == this.id)) {
         console.log("Received stream answer", msg);
         this.rtcPeerConnection.setRemoteDescription(msg as any);
+        if (msg.destination && this.stream)
+          this.peer.call(msg.destination, this.stream);
       }
     });
   }
 
-  async createOffer() {
+  private async createOffer() {
     this.offerDescription = await this.rtcPeerConnection.createOffer();
     console.log("Creating RTC Offer", this.offerDescription);
     await this.rtcPeerConnection.setLocalDescription(this.offerDescription);

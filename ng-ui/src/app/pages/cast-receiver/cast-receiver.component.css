@@ -17,3 +17,7 @@
     75% {transform: rotate(270deg);}
     100% {transform: rotate(360deg);}
 }
+
+.media.media-active {
+    height: 500px;
+}
