@@ -1,4 +1,5 @@
 #! /usr/bin/env node
+import { MulticastDnsService } from './utils/multicast-dns-service.js';
 import { Server } from "./utils/server.js";
 import { Command } from 'commander';
 const program = new Command();
@@ -10,6 +11,6 @@ program.name("desktop-share")
 
 program.parse(process.argv);
 const options = program.opts();
-
+const mdns = new MulticastDnsService();
 const server = new Server();
 server.startServer(parseInt(options.port));
